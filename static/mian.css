@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato',
+        sans-serif;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    background: #E8F3FC;
+    overflow: hidden;
+    isolation: isolate;
+
+}
+
+.warpper {
+    position: absolute;
+    width: 600px;
+    height: 400px;
+    left: 50%;
+    top: 50%;
+    display: flex;
+    flex-direction: column;
+    transform: translate(-50%, -50%);
+    background: #041A32;
+    box-shadow: -7px 4px 82px 3px rgba(0, 0, 0, 0.67);
+    border-radius: 3px;
+}
+
+.polygon {
+    box-sizing: border-box;
+    position: absolute;
+    width: 346px;
+    height: 345px;
+    left: 138.48px;
+    top: 689px;
+    border: 1px solid #04E881;
+    z-index: -1;
+    transform: rotate(47.78deg);
+}
+
+
+
+.circle {
+    position: absolute;
+    width: 252px;
+    height: 252px;
+
+    border-radius: 50%;
+    z-index: -1;
+    border: 1px solid #04E881;
+}
+
+.circle-1 {
+    right: -100px;
+    top: -10%;
+}
+
+.circle-2 {
+    left: 20%;
+    top: 10%;
+}
+
+/* Login */
+.warpper-top {
+    flex: 0.1;
+    text-align: center;
+    color: #E8F3FC;
+    padding: 1.3rem 3rem;
+}
+
+.warpper-bottom {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    flex: auto;
+}
+
+.warpper-loign-img {
+    flex: 0.4;
+    display: grid;
+    place-items: center;
+}
+
+.warpper-loign-img img {
+    justify-self: center;
+    object-fit: contain;
+    width: 90%;
+}
+
+.warpper-login-right {
+    flex: 0.6;
+}
+
+.form-warpper {
+    display: flex;
+    flex-direction: column;
+    color: #E8F3FC;
+    margin: 2rem 2.4rem;
+}
+
+.form-warpper input {
+    border: none;
+    width: 100%;
+    outline: none;
+    color: #E8F3FC;
+    background: transparent;
+    border-bottom: solid 1.3px #04E881;
+    line-height: 1.5;
+
+}
+
+.form-warpper label {
+    line-height: 1.7;
+    font-weight: 300;
+    padding: 0.3rem 0;
+    /* background: #04E881; */
+}
+
+.form-warpper input:focus {
+    border-bottom: solid 2.3px #04E881;
+
+}
+
+.form-warpper input[type=submit] {
+    background: #E8F3FC;
+    color: #041A32;
+    border: none;
+    padding: 0.4rem 0;
+    border-radius: 0.06rem;
+    font-family: 'Lato';
+    cursor: pointer;
+}
+
+.form-warpper input[type=submit]:hover,
+.form-warpper input[type=submit]:focus {
+    background: #cbd2d6;
+
+}
+
+a {
+    color: #04E881;
+    padding: auto 0.3rem;
+}
+
+.logout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #041A32;
+    background: #E8F3FC;
+    width: 200px;
+    padding: 0.4rem 0;
+    border-radius: 0.06rem;
+}
+
+button {
+    border: none;
+    color: #041A32;
+    background: #E8F3FC;
+    width: 100%;
+    height: 100%;
+    padding: 0.4rem 0;
+    border-radius: 0.06rem;
+
+    font-family: 'Lato';
+    cursor: pointer;
+}
+
+button i {
+    margin-right: 0.4rem;
+}

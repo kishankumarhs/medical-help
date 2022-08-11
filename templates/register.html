@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/mian.css">
+    <script src="https://kit.fontawesome.com/eb3ac9fd91.js"> </script>
+    <title>Help Assistant</title>
+</head>
+
+<body>
+    <div class="polygon"></div>
+    <div class="circle circle-1"></div>
+    <div class="circle circle-2"></div>
+    <div class="warpper">
+        <div class="warpper-top">
+            <h2 class="login-securely">
+                Register Securly
+            </h2>
+        </div>
+        <form action="/register" method="post" class="warpper-bottom">
+            <div class="warpper-loign-img">
+                <img src="../static/login.svg" alt="">
+            </div>
+            <div class="warpper-login-right">
+                <div class="form-warpper">
+                    <label for="user">username</label>
+                    <input type="text" name="username">
+                </div>
+                <div class="form-warpper">
+                    <label for="user">password</label>
+                    <input type="password" name="password">
+                </div>
+
+                <div class="form-warpper">
+                    <button type="submit" id="login-btn">
+                        <i class="fa fa-lock" aria-hidden="true"></i>
+                        Register
+                    </button>
+                </div>
+                <div class="form-warpper">
+                    <p class="foget">
+                        have a account <a href="/login">Login</a>
+                    </p>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- <script>
+        window.onload = () => {
+            document.getElementById('login-btn').onclick = () => {
+                window.location.href = '/'
+            }
+        }
+    </script> -->
+</body>
+
+</html>
+<!-- {{ url_for('static', filename = 'style.css') }} -->
+<!-- {{url_for('static',filename='login.svg')}} -->

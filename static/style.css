@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins',
+        sans-serif;
+}
+
+#help-assis {
+    position: absolute;
+    bottom: 100px;
+    right: 20px;
+    width: 400px;
+    max-height: 40vh;
+    height: 40vh;
+    border-radius: 0.63rem;
+    isolation: isolate;
+}
+
+.open-chat-bot {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 80px;
+    height: 80px;
+    display: grid;
+    place-items: center;
+    color: #21f078;
+    background: #2f2f2f;
+    border-radius: 50%;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.assistant {
+    display: none;
+    width: 100%;
+    max-height: 40vh;
+    height: 100%;
+    background: #fff;
+    box-shadow: 4px 4px 50px 0px #2f2f2f4f;
+}
+
+.assistant-header {
+    display: flex;
+    background: #2f2f2f;
+    color: #fff;
+    padding: 10px;
+    align-items: center;
+    box-shadow: 0px 0px 10px 0px #00000033;
+}
+
+.assistant-header-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+}
+
+.avatar {
+    width: 100%;
+    object-fit: contain;
+
+}
+
+.title {
+    padding-left: 10px;
+}
+
+.assistant-body {
+    font-size: 0.87rem;
+    overflow-y: scroll;
+    padding: 10px;
+    height: 100%;
+    max-height: 100%;
+    background: cornsilk;
+}
+
+.assistant-body::-webkit-scrollbar {
+    display: none;
+}
+
+.assistant-body-question {
+    max-width: 50%;
+    padding: 0.9rem;
+    border-radius: 0.163rem;
+    background: #21f078;
+    box-shadow: 0px 0px 10px 0px #00000033;
+    margin: 1.2rem auto;
+    margin-right: 43%;
+
+}
+
+.assistant-body-reply {
+    max-width: 50%;
+    padding: 0.9rem;
+    border-radius: 0.163rem;
+    background: rgb(96, 253, 11);
+    box-shadow: 0px 0px 10px 0px #00000033;
+    margin: 1.2rem auto;
+    margin-left: 43%;
+}
+
+.assistant-footer {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: auto 10px;
+    background: #fff;
+
+}
+
+.button-image {
+    font-size: 1.3rem;
+    color: rgb(76, 203, 8);
+
+}
+
+.assistant-footer-input {
+    display: flex;
+    flex: 1;
+    box-shadow: 4px -4px 50px 0px #2f2f2f4f;
+}
+
+.input {
+    outline: none;
+    height: 50px;
+    flex: 0.9;
+    border: none;
+    background: rgb(242, 245, 236);
+    text-indent: 10px;
+}
+
+
+.button {
+    border: none;
+    flex: 0.1;
+    padding: 0.6rem;
+    cursor: pointer;
+}
+
+.header-close-button {
+    position: absolute;
+    display: grid;
+    place-content: center;
+    cursor: pointer;
+    top: -10px;
+    right: -10px;
+    background: crimson;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 1.2rem;
+}
+
+.loading {
+    max-width: 50%;
+    position: relative;
+    /* padding: 0.9rem; */
+    height: 50px;
+    border-radius: 0.163rem;
+    background: #21f078;
+    box-shadow: 0px 0px 10px 0px #00000033;
+    margin: 1.2rem auto;
+    margin-right: 43%;
+    isolation: isolate;
+    display: grid;
+    place-content: center;
+}
+
+.question-loading {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: #2f2f2f;
+    border-radius: 50%;
+    top: 50%;
+    z-index: 1;
+    left: 40%;
+    /*transform: translate(-50%, -50%); */
+    animation: loading 1200ms ease-in-out infinite;
+
+}
+
+.loading::before {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: #2f2f2f;
+    border-radius: 50%;
+    top: 50%;
+    z-index: 1;
+    left: 50%;
+    /*transform: translate(-50%, -50%); */
+    animation: loading 1200ms ease-in-out infinite 100ms;
+
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: #2f2f2f;
+    border-radius: 50%;
+    top: 50%;
+    z-index: 1;
+    left: 60%;
+    /* transform: translate(-60%, -60%); */
+    animation: loading 1200ms ease-in-out infinite 200ms;
+
+}
+
+@keyframes loading {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.6);
+    }
+}
