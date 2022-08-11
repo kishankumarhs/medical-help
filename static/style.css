@@ -8,18 +8,17 @@
 }
 
 #help-assis {
-    position: absolute;
-    bottom: 100px;
+    position: fixed;
+    bottom: 50px;
     right: 20px;
-    width: 400px;
+    width: 350px;
     max-height: 40vh;
-    height: 40vh;
     border-radius: 0.63rem;
     isolation: isolate;
 }
 
 .open-chat-bot {
-    position: absolute;
+    position: fixed;
     bottom: 10px;
     right: 10px;
     width: 80px;
@@ -74,8 +73,8 @@
     font-size: 0.87rem;
     overflow-y: scroll;
     padding: 10px;
-    height: 100%;
-    max-height: 100%;
+    height: 250px;
+    max-height: 300px;
     background: cornsilk;
 }
 
@@ -85,7 +84,7 @@
 
 .assistant-body-question {
     max-width: 50%;
-    padding: 0.9rem;
+    padding: 0.2rem;
     border-radius: 0.163rem;
     background: #21f078;
     box-shadow: 0px 0px 10px 0px #00000033;
@@ -96,7 +95,8 @@
 
 .assistant-body-reply {
     max-width: 50%;
-    padding: 0.9rem;
+    padding: 0.2rem;
+    text-overflow: clip;
     border-radius: 0.163rem;
     background: rgb(96, 253, 11);
     box-shadow: 0px 0px 10px 0px #00000033;
@@ -215,6 +215,8 @@
     animation: loading 1200ms ease-in-out infinite 200ms;
 
 }
+
+
 
 @keyframes loading {
     0% {

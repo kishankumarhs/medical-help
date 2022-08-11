@@ -5,8 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../static/login.svg" type="image/x-icon">
     <link rel="stylesheet" href="../static/mian.css">
     <script src="https://kit.fontawesome.com/eb3ac9fd91.js"> </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <title>Help Assistant</title>
 </head>
 
@@ -22,9 +25,15 @@
                 <img src="{{ url_for('static', filename = 'login.svg') }}" alt="">
             </div>
             <form action="/login" method="post" class="warpper-login-right">
+
                 <div class="form-warpper">
                     <label for="user">username</label>
                     <input type="text" name="username">
+                    <div class="err">
+                        {% if error %}
+                        {{ error }}
+                        {% endif %}
+                    </div>
                 </div>
                 <div class="form-warpper">
                     <label for="user">password</label>
@@ -38,7 +47,7 @@
                 </div>
                 <div class="form-warpper">
                     <p class="foget">
-                        not have a account <a href="/register">Register</a>
+                        not have a account <a href="{{ url_for('register') }}">Register</a>
                     </p>
                 </div>
                 </from>

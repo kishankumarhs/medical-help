@@ -12,7 +12,7 @@ body {
     width: 100vw;
     height: 100vh;
     background: #E8F3FC;
-    overflow: hidden;
+    overflow-x: hidden;
     color: #041A32;
 }
 
@@ -86,8 +86,8 @@ body {
     object-fit: contain;
 }
 
-.col h1,
-.col p {
+.col>h1,
+.col>p {
     width: 50ch;
     padding: 0.67rem 2rem;
 }
