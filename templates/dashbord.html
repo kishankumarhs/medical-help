@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../static/dashbord.css">
     <script src="https://kit.fontawesome.com/eb3ac9fd91.js"> </script>
     <link rel="stylesheet" href="../static/style.css">
-    <script src="https://cdn.jsdelivr.net/gh/kishankumarhs/help-assistant-cdn/help.js"></script>
+    <script src="../static/help.js"></script>
 </head>
 
 <body>
@@ -48,15 +48,15 @@
                 repellat laboriosam aliquid ipsam quibusdam hic. Esse temporibus placeat aperiam rem officiis unde
                 accusantium, obcaecati repellat.</p>
         </div>
-        <div class="col">
-            <div id="help-assis"></div>
-            <script>
-                const assistant = new Assitant({
-                    container: document.getElementById('help-assis')
-                });
-                assistant.init()
-            </script>
-        </div>
+
+        <div id="help-assis"></div>
+        <script>
+            const assistant = new Assitant({
+                container: document.getElementById('help-assis')
+            });
+            assistant.init()
+        </script>
+
     </div>
 </body>
 
