@@ -10,11 +10,20 @@ class Assitant {
       this.input.placeholder = "Ask something";
     });
     this.loading = null;
-
     this.data = "...";
     this.input.setAttribute("type", "text");
     this.input.setAttribute("placeholder", "Ask something");
     this.assistantBody = document.createElement("div");
+    document.onkeydown = (event) => {
+      if (event.keyCode == 13) {
+        if (this.input.value) {
+          this.createReplay();
+        } else {
+          this.input.style.outline = "solid 0.8px crimson";
+          this.input.placeholder = "enter something";
+        }
+      }
+    };
   }
 
   init() {
@@ -142,14 +151,14 @@ class Assitant {
     this.assistantBody.appendChild(assistantBodyContent);
     this.createAssistantBodyTitleLoading();
     (async () => {
-      await fetch("https://young-reef-67448.herokuapp.com/chat", {
+      await fetch("http://127.0.0.1:5000/api/chatresponse", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
         body: JSON.stringify({
-          question: this.input.value,
+          msg: this.input.value,
         }),
       }).then(async (res) => {
         const data = await res.text();

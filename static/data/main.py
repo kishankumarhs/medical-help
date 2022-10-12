@@ -1,5 +1,7 @@
 
-from flask import Flask, render_template, request, redirect, url_for, make_response
+from flask import Flask, render_template, request, redirect, url_for, make_response, session, flash
+from tkinter import *
+import tkinter
 import random
 import json
 from keras.models import load_model
@@ -18,13 +20,11 @@ def home():
 
 
 lemmatizer = WordNetLemmatizer()
+
 model = load_model(os.path.join(app.static_folder, 'data', 'chatbot_model.h5'))
-intents = json.loads(
-    open(os.path.join(app.static_folder, 'data', 'intents.json')).read())
-words = pickle.load(
-    open(os.path.join(app.static_folder, 'data', 'words.pkl'), 'rb'))
-classes = pickle.load(
-    open(os.path.join(app.static_folder, 'data', 'classes.pkl'), 'rb'))
+intents = json.loads(open(os.path.join(app.static_folder, 'data', 'intents.json'))).read()
+words = pickle.load(open('words.pkl', 'rb'))
+classes = pickle.load(open('classes.pkl', 'rb'))
 
 
 def clean_up_sentence(sentence):
@@ -124,10 +124,10 @@ def chatbot_response(msg):
 #     else:
 #         return render_template('register.html')
 
-@app.route('/api/chatresponse', methods=["POST"])
+@app.route('/api/chatrespnose', methods=["POST"])
 def response():
     if request.method == "POST":
-        res = chatbot_response(request.json['msg'])
+        res = chatbot_response(request.form['msg'])
         return res
 
 
