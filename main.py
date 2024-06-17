@@ -9,12 +9,12 @@ import nltk
 import os
 from nltk.stem import WordNetLemmatizer
 app = Flask(__name__)
-app.secret_key = 'asdasdasd'
+app.secret_key = 'dsfowqdeqwkjdqwdqdjqwwq'
 
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
-    return render_template('dashbord.html')
+    return render_template('dashboard.html')
 
 
 lemmatizer = WordNetLemmatizer()
@@ -68,6 +68,8 @@ def predict_class(sentence, model):
 
 
 def getResponse(ints, intents_json):
+    if(len(ints) == 0):
+        return 'Sorry I dont understand'
     tag = ints[0]['intent']
     list_of_intents = intents_json['intents']
     for i in list_of_intents:
