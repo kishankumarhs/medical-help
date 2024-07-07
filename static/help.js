@@ -1,6 +1,6 @@
 "use strict";
 
-class Assitant {
+class Assistant {
   constructor(options) {
     this.options = options;
     this.input = document.createElement("input");
@@ -20,7 +20,7 @@ class Assitant {
           this.createReplay();
         } else {
           this.input.style.outline = "solid 0.8px crimson";
-          this.input.placeholder = "enter something";
+          this.input.placeholder = "Enter something";
         }
       }
     };
@@ -57,7 +57,7 @@ class Assitant {
     assistant.id = "assistant";
     assistant.appendChild(this.createAssistantHeader());
     assistant.appendChild(this.createAssistantBody());
-    assistant.appendChild(this.createAssistantFotter());
+    assistant.appendChild(this.createAssistantFooter());
     return assistant;
   }
   createAssistantHeader() {
@@ -98,20 +98,20 @@ class Assitant {
   createAssistantBody() {
     this.assistantBody.classList.add("assistant-body");
     this.createAssistantBodyTitle(
-      "hello You ask me anything like qustion or chat with me in proper english word"
+      "Hello, feel free to ask me any questions or engage in a conversation using proper English language."
     );
     return this.assistantBody;
   }
   createAssistantHeaderTitleAvatar() {
-    let ButttonImage = document.createElement("i");
-    ButttonImage.classList.add("fas");
-    ButttonImage.classList.add("fa-robot");
-    ButttonImage.classList.add("button-image");
+    let ButtonImage = document.createElement("i");
+    ButtonImage.classList.add("fas");
+    ButtonImage.classList.add("fa-robot");
+    ButtonImage.classList.add("button-image");
 
-    return ButttonImage;
+    return ButtonImage;
   }
 
-  createAssistantFotter() {
+  createAssistantFooter() {
     let assistantFooter = document.createElement("div");
     assistantFooter.classList.add("assistant-footer");
     assistantFooter.appendChild(this.createAssistantFooterInput());
@@ -129,11 +129,11 @@ class Assitant {
     let Button = document.createElement("button");
     Button.classList.add("button");
     Button.setAttribute("type", "submit");
-    let ButttonImage = document.createElement("i");
-    ButttonImage.classList.add("far");
-    ButttonImage.classList.add("fa-paper-plane");
-    ButttonImage.classList.add("button-image");
-    Button.appendChild(ButttonImage);
+    let ButtonImage = document.createElement("i");
+    ButtonImage.classList.add("far");
+    ButtonImage.classList.add("fa-paper-plane");
+    ButtonImage.classList.add("button-image");
+    Button.appendChild(ButtonImage);
     Button.addEventListener("click", () => {
       if (this.input.value) {
         this.createReplay();
@@ -181,10 +181,13 @@ class Assitant {
     assistantBodyTitle.classList.add("assistant-body-question");
     assistantBodyTitle.innerHTML = `<p class="question">${ans}</p>`;
     this.assistantBody.appendChild(assistantBodyTitle);
-    this.assistantBody.scrollBy(document.body.offsetX, document.body.offsetY);
+    assistantBodyTitle.scrollIntoView();
     let speech = new SpeechSynthesisUtterance();
+    const voices = window.speechSynthesis.getVoices();
+    console.log(speech);
     speech.lang = "en";
-    speech.text = this.data;
+    speech.text = ans;
+    speech.voice = voices.find((voice) => voice.name == "Aaron");
     window.speechSynthesis.speak(speech);
   }
   Replay() {

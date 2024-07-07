@@ -82,13 +82,13 @@
 }
 
 .assistant-body-question {
-    max-width: 50%;
+    max-width: 90%;
     padding: 0.9rem;
     border-radius: 0.163rem;
     background: #21f078;
     box-shadow: 0px 0px 10px 0px #00000033;
-    margin: 1.2rem auto;
-    margin-right: 43%;
+    /* margin: 1.2rem auto;
+    margin-right: 43%; */
 
 }
 
@@ -131,6 +131,7 @@
     border: none;
     background: rgb(242, 245, 236);
     text-indent: 10px;
+    flex: 0.9;
 }
 
 
