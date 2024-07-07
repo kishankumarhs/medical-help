@@ -14,11 +14,13 @@
   <body>
     <div class="main-header">
       <div class="greetings">
-        <h2>
+        <h2 style="text-wrap: nowrap">
           Hello
-          
+          <span style="color: rgb(34, 206, 109)"
+            >{{request.cookies.get('username').replace('@gmail.com','')}}</span
+          >
         </h2>
-        <small> WELCOME ASK SOMETHING </small>
+        <small style="text-wrap: nowrap"> WELCOME ASK SOMETHING </small>
       </div>
       <form action="/logout" method="post" class="logout">
         <button type="submit" id="login-btn">

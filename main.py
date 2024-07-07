@@ -1,13 +1,15 @@
 
-from flask import Flask, render_template, request, redirect, url_for, make_response
+from flask import Flask, render_template, request, redirect, session, url_for, make_response
 import random
-import json
+import json 
 from keras.models import load_model
 import numpy as np
 import pickle
 import nltk
 import os
 from nltk.stem import WordNetLemmatizer
+from DB import connectDB
+
 app = Flask(__name__)
 app.secret_key = 'dsfowqdeqwkjdqwdqdjqwwq'
 
@@ -86,45 +88,45 @@ def chatbot_response(msg):
 
 
 # Creating GUI with tkinter
-# @app.route('/login', methods=['GET', 'POST'])
-# def login():
-#     if request.method == 'POST':
-#         username = request.form['username']
-#         password = request.form['password']
-#         conn = connectDB()
-#         mycursor = conn.cursor()
-#         sql = 'SELECT * FROM users WHERE username = %s AND password = %s'
-#         val = (username, password)
-#         mycursor.execute(sql, val)
-#         myresult = mycursor.fetchall()
-#         if len(myresult) > 0 and myresult[0][1] == username and myresult[0][2] == password:
-#             ressp = make_response(redirect(url_for('home')))
-#             ressp.set_cookie('username', username)
-#             return ressp
-#         else:
-#             session['login_error'] = 'Invalid Credentials'
-#             return redirect(url_for('login'))
-#     else:
-#         return render_template('index.html')
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        conn = connectDB()
+        mycursor = conn.cursor()
+        sql = 'SELECT * FROM users WHERE username = %s AND password = %s'
+        val = (username, password)
+        mycursor.execute(sql, val)
+        myresult = mycursor.fetchall()
+        if len(myresult) > 0 and myresult[0][1] == username and myresult[0][2] == password:
+            ressp = make_response(redirect(url_for('home')))
+            ressp.set_cookie('username', username)
+            return ressp
+        else:
+            session['login_error'] = 'Invalid Credentials'
+            return redirect(url_for('login'))
+    else:
+        return render_template('index.html')
 
 
-# @app.route('/register', methods=['GET', "POST"])
-# def register():
-#     if request.method == "POST":
-#         username = request.form['username']
-#         password = request.form['password']
-#         conn = connectDB()
-#         sql = 'INSERT INTO users (username,password) VALUES (%s,%s)'
-#         val = (username, password)
-#         mycursor = conn.cursor()
-#         mycursor.execute(sql, val)
-#         # return mycursor.rowcount
-#         conn.commit()
-#         ressp = make_response(redirect(url_for('home')))
-#         ressp.set_cookie('username', username)
-#         return ressp
-#     else:
-#         return render_template('register.html')
+@app.route('/register', methods=['GET', "POST"])
+def register():
+    if request.method == "POST":
+        username = request.form['username']
+        password = request.form['password']
+        conn = connectDB()
+        sql = 'INSERT INTO users (username,password) VALUES (%s,%s)'
+        val = (username, password)
+        mycursor = conn.cursor()
+        mycursor.execute(sql, val)
+        # return mycursor.rowcount
+        conn.commit()
+        ressp = make_response(redirect(url_for('home')))
+        ressp.set_cookie('username', username)
+        return ressp
+    else:
+        return render_template('register.html')
 
 @app.route('/api/chatresponse', methods=["POST"])
 def response():

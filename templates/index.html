@@ -23,12 +23,12 @@
             </div>
             <form action="/login" method="post" class="warpper-login-right">
                 <div class="form-warpper">
-                    <label for="user">username</label>
-                    <input type="text" name="username">
+                    <label for="user">Email</label>
+                    <input type="text" name="username" placeholder="Enter your email">
                 </div>
                 <div class="form-warpper">
-                    <label for="user">password</label>
-                    <input type="password" name="password">
+                    <label for="user">Password</label>
+                    <input type="password" name="password" placeholder="Enter your password">
                 </div>
                 <div class="form-warpper">
                     <button type="submit" id="login-btn">
@@ -36,6 +36,9 @@
                         Login
                     </button>
                 </div>
+                <!-- <span style="color: crimson;">
+                    {{session['login_error']}}
+                </span> -->
                 <div class="form-warpper">
                     <p class="foget">
                         not have a account <a href="/register">Register</a>
